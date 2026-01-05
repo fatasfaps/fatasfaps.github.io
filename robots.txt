@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://hasyafaps.github.io/sitemap.xml
+Sitemap: https://fatasfaps.github.io/sitemap.xml
