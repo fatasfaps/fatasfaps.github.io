@@ -29,7 +29,7 @@ social: true # includes social icons at the bottom of the page
 
 Hi there, I'm Fatima --though I've been known as Fatas for the longest time! 
 
-I'm a fresh graduate in Biomedical Engineering from Airlangga University. 
+I am a fresh graduate in Biomedical Engineering from Airlangga University, particularly interested in the research area of AI-based medical diagnosis and treatment. Outside academic, I love to dissect the abstracts of human beings, encompassing the science of how they function on cognitive and psychological level.
 
 Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
 
