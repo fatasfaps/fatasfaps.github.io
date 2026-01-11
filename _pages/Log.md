@@ -1,6 +1,6 @@
 ---
 layout: default
-permalink: /Log/
+permalink: /log/
 title: Log
 nav: true
 nav_order: 1
