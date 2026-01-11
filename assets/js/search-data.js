@@ -16,21 +16,7 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/projects/";
           },
-        },{id: "dropdown-books",
-              title: "Books",
-              description: "",
-              section: "Dropdown",
-              handler: () => {
-                window.location.href = "/books/";
-              },
-            },{id: "dropdown-movies",
-              title: "Movies",
-              description: "",
-              section: "Dropdown",
-              handler: () => {
-                window.location.href = "/movies/";
-              },
-            },{id: "dropdown-log",
+        },{id: "dropdown-log",
               title: "Log",
               description: "",
               section: "Dropdown",
@@ -43,6 +29,20 @@ ninja.data = [{
               section: "Dropdown",
               handler: () => {
                 window.location.href = "/scribble/";
+              },
+            },{id: "dropdown-books",
+              title: "Books",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/books/";
+              },
+            },{id: "dropdown-movies",
+              title: "Movies",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/movies/";
               },
             },{id: "post-a-post-with-plotly-js",
         
