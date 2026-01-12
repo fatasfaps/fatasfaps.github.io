@@ -27,8 +27,12 @@ social: true # includes social icons at the bottom of the page
 #   limit: 3 # leave blank to include all the blog posts
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+Hi there, I'm Fatima —or, Fatas, the name I've gone with for the longest time! 
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+I'm a fresh graduate in Biomedical Engineering from Airlangga University, particularly invested in the research area of AI incorporation into medical diagnosis and treatment during my studies. For the most part, I find myself gravitating towards dissecting the dynamics of human beings, encompassing the science of how we function at the cognitive and behavioral levels. Hence, my deep curiosity and interest in learning about neuroscience and human psychology. 
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+As I'm about to embark on a new phase in life, I've been navigating this transition by catching up on some [learning](https://fatasfaps.github.io/log/) and working on independent [projects](https://fatasfaps.github.io/projects/). Outside of that, I tend to linger in thought about the things I observe and sense. Some of them fascinate me so irresistibly that I've been trying to write them down —kindly check my [scribbles](https://fatasfaps.github.io/scribble/) and [pieces](https://medium.com/@fatasfaps) to find out more. 
+
+I typically love to spend my time [reading](https://fatasfaps.github.io/books/), mostly literary and contemporary fiction. Additionally, I've always been keen on making music and engaging in creative activity —such as painting, cooking, and crafting. For the physical part, I'm an average exerciser —only when I have enough macro intake, plucky good attitude, and can-do spirit that I take on my sister's invitation to play tennis :D
+
+Nice to meet you, welcome to my page! 
