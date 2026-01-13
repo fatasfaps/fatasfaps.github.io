@@ -1,6 +1,6 @@
 ---
 layout: scribble
-permalink: /scribble/
+permalink: /scribbles/
 title: Scribbles
 subtitle: Articulated ponderations.
 description: >
