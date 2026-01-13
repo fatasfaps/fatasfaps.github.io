@@ -4,6 +4,15 @@
 
 // Typography
 
+html {
+  font-size: 15px; // default browser = 16px
+}
+
+body {
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
 p,
 h1,
 h2,
