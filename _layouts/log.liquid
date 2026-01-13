@@ -18,11 +18,11 @@
           <p class="page-subtitle">{{ page.subtitle }}</p>
         {% endif %}
 
-        {% if page.description %}
-          <p class="page-description text-muted">
-            {{ page.description }}
-          </p>
-        {% endif %}
+    {% if page.description %}
+      <p class="page-description text-muted">
+        {{ page.description | markdownify }}
+      </p>
+    {% endif %}
 
         <hr>
       </header>
