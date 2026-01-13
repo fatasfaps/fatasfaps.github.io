@@ -23,7 +23,7 @@
     <!-- Content -->
     <div class="container mt-5" role="main">
 
-      {% if page.permalink == "/log/" %}
+      {% if page.layout == "log" %}
         <header class="page-header log mb-5">
           <h1 class="page-title">
             {{ page.title | default: "Log" }}
