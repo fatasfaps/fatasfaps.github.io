@@ -1,80 +1,38 @@
 <!doctype html>
 <html lang="{{ site.lang }}">
-  <!-- Head -->
-  <head>
-    {% if page.redirect %}
-      {% if page.redirect == true %}
-        {% assign redirect = site.baseurl | append: '/' %}
-      {% elsif page.redirect contains '://' %}
-        {% assign redirect = page.redirect %}
-      {% else %}
-        {% assign redirect = page.redirect | relative_url %}
-      {% endif %}
-      <meta http-equiv="refresh" content="3; url={{ redirect }}">
-    {% endif %}
-    {% include head.liquid %}
-  </head>
+<head>
+  {% include head.liquid %}
+</head>
 
-  <!-- Body -->
-  <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
-    <!-- Header -->
-    {% include header.liquid %}
+<body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
+  {% include header.liquid %}
 
-    <!-- Content -->
-    <div class="container mt-5" role="main">
+  <!-- Content -->
+  <div class="container mt-5" role="main">
 
-      {% if page.layout == "log" %}
-        <header class="page-header log mb-5">
-          <h1 class="page-title">
-            {{ page.title | default: "Log" }}
-          </h1>
-      
-          {% if page.subtitle %}
-            <p class="page-subtitle">
-              {{ page.subtitle }}
-            </p>
-          {% endif %}
-      
-          {% if page.description %}
-            <p class="page-description text-muted">
-              {{ page.description }}
-            </p>
-          {% endif %}
-      
-          <hr>
-        </header>
-      {% endif %}
+    {% if page.title %}
+      <header class="page-header log-header mb-5">
+        <h1 class="page-title">{{ page.title }}</h1>
 
-      {% if page.toc and page.toc.sidebar %}
-        {% if page.toc.sidebar == 'right' %}
-          <div class="row">
-            <div class="col-sm-9">
-              {{ content }}
-            </div>
-            <div class="col-sm-3">
-              <nav id="toc-sidebar" class="sticky-top"></nav>
-            </div>
-          </div>
-        {% else %}
-          <div class="row">
-            <div class="col-sm-3">
-              <nav id="toc-sidebar" class="sticky-top"></nav>
-            </div>
-            <div class="col-sm-9">
-              {{ content }}
-            </div>
-          </div>
+        {% if page.subtitle %}
+          <p class="page-subtitle">{{ page.subtitle }}</p>
         {% endif %}
-      {% else %}
-        {{ content }}
-      {% endif %}
 
-    </div>
+        {% if page.description %}
+          <p class="page-description text-muted">
+            {{ page.description }}
+          </p>
+        {% endif %}
 
-    <!-- Footer -->
-    {% include footer.liquid %}
+        <hr>
+      </header>
+    {% endif %}
 
-    <!-- JavaScripts -->
-    {% include scripts.liquid %}
-  </body>
+    {{ content }}
+
+  </div>
+
+  {% include footer.liquid %}
+  {% include scripts.liquid %}
+</body>
 </html>
