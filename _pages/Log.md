@@ -4,7 +4,7 @@ permalink: /logs/
 title: Logs
 subtitle: The second brain, the key takeaways.
 description: >
-  Juggling between mundanities and suddenly the traces of thought are nowhere nowhere to be found — yet again. Here's my attempt to capture them.
+  Juggling between mundanities and suddenly the traces of thought are nowhere to be found —yet again. Here's my attempt to capture them.
 nav: false
 nav_order: 1
 pagination:
