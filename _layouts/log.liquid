@@ -24,12 +24,23 @@
     <div class="container mt-5" role="main">
 
       {% if page.permalink == "/log/" %}
-        <!-- LOG HEADER -->
-        <header class="mb-5">
-          <h1 class="fw-bold">Log</h1>
-          <p class="text-muted">
-            Weekly notes, scribbles, and what I’ve been working on.
-          </p>
+        <header class="page-header log mb-5">
+          <h1 class="page-title">
+            {{ page.title | default: "Log" }}
+          </h1>
+      
+          {% if page.subtitle %}
+            <p class="page-subtitle">
+              {{ page.subtitle }}
+            </p>
+          {% endif %}
+      
+          {% if page.description %}
+            <p class="page-description text-muted">
+              {{ page.description }}
+            </p>
+          {% endif %}
+      
           <hr>
         </header>
       {% endif %}
