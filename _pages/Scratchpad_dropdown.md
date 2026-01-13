@@ -6,8 +6,8 @@ nav_order: 3
 dropdown: true
 children:
   - title: Log
-    permalink: /log/
+    permalink: /logs/
   - title: divider
   - title: Scribble
-    permalink: /scribble/
+    permalink: /scribbles/
 ---
