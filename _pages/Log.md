@@ -1,11 +1,10 @@
 ---
 layout: log
-permalink: /log/
-title: Log
-subtitle: Second brain on my learning journey.
+permalink: /logs/
+title: Logs
+subtitle: The second brain, the key takeaways.
 description: >
-  Here goes the attempt to document my thinking process while studying,
-  aiming to carve deeper understanding. Maybe you savor some?
+  Juggling between mundanities and suddenly the traces of thought are nowhere nowhere to be found — yet again. Here's my attempt to capture them.
 nav: false
 nav_order: 1
 pagination:
