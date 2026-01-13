@@ -21,14 +21,14 @@ ninja.data = [{
               description: "",
               section: "Dropdown",
               handler: () => {
-                window.location.href = "/log/";
+                window.location.href = "/logs/";
               },
             },{id: "dropdown-scribble",
               title: "Scribble",
               description: "",
               section: "Dropdown",
               handler: () => {
-                window.location.href = "/scribble/";
+                window.location.href = "/scribbles/";
               },
             },{id: "dropdown-books",
               title: "Books",
