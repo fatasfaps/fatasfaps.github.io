@@ -1,1 +1,63 @@
+<!doctype html>
+<html lang="{{ site.lang }}">
+  <!-- Head -->
+  <head>
+    {% if page.redirect %}
+      {% if page.redirect == true %}
+        {% assign redirect = site.baseurl | append: '/' %}
+      {% elsif page.redirect contains '://' %}
+        {% assign redirect = page.redirect %}
+      {% else %}
+        {% assign redirect = page.redirect | relative_url %}
+      {% endif %}
+      <meta http-equiv="refresh" content="3; url={{ redirect }}">
+    {% endif %}
+    {% include head.liquid %}
+  </head>
 
+  <!-- Body -->
+  <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
+    <!-- Header -->
+    {% include header.liquid %}
+
+<!-- Content -->
+<div class="container mt-5" role="main">
+
+  {% if page.permalink == "/log/" %}
+    <!-- LOG HEADER -->
+    <header class="mb-5">
+      <h1 class="fw-bold">Log</h1>
+      <p class="text-muted">
+        Weekly notes, scribbles, and what I’ve been working on.
+      </p>
+      <hr>
+    </header>
+  {% endif %}
+
+    <!-- Footer -->
+    {% include footer.liquid %}
+
+    <!-- JavaScripts -->
+    {% include scripts.liquid %}
+  </body>
+</html>
+
+{% if page.toc and page.toc.sidebar %}
+  {% if page.toc.sidebar == 'right' %}
+    <div class="row">
+      <div class="col-sm-9">{{ content }}</div>
+      <div class="col-sm-3">
+        <nav id="toc-sidebar" class="sticky-top"></nav>
+      </div>
+    </div>
+  {% else %}
+    <div class="row">
+      <div class="col-sm-3">
+        <nav id="toc-sidebar" class="sticky-top"></nav>
+      </div>
+      <div class="col-sm-9">{{ content }}</div>
+    </div>
+  {% endif %}
+{% else %}
+  {{ content }}
+{% endif %}
