@@ -314,8 +314,8 @@ ul.task-list input[type="checkbox"] {
   }
 
   .navbar-nav .nav-item .nav-link {
-  color: var(--global-text-color);
-  font-weight: bold; 
+    color: var(--global-text-color);
+    font-weight: bold; 
 
   &:hover {
     color: var(--global-hover-color);
@@ -582,6 +582,7 @@ footer.sticky-bottom {
   h1 {
     color: var(--global-theme-color);
     font-size: 5rem;
+    font-weight: bold !important;
   }
 }
 
