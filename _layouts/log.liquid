@@ -7,25 +7,27 @@
 <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
   {% include header.liquid %}
 
+  <!-- Content -->
   <div class="container mt-5" role="main">
 
     {% if page.title %}
-      <header class="post-header mb-4"> 
-        <h1 class="page-title">{{ page.title }}</h1>
+      <header class="post-header mb-5">
+        <h1 class="post-title font-weight-bold">{{ page.title }}</h1>
       
         {% if page.subtitle %}
-          <p class="page-subtitle">
+          <p class="page-subtitle font-weight-bold" style="color: var(--global-theme-color) !important;">
             {{ page.subtitle }}
           </p>
         {% endif %}
-
+      
         {% if page.description %}
-          <div class="post-description">
+          <p class="post-description">
             {{ page.description | markdownify }}
-          </div>
+          </p>
         {% endif %}
         <hr>
       </header>
+
     {% endif %}
 
     {{ content }}
