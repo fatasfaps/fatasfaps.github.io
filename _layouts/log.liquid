@@ -11,21 +11,21 @@
   <div class="container mt-5" role="main">
 
     {% if page.title %}
-      <header class="page-header log-header mb-5">
-        <h1 class="page-title">{{ page.title }}</h1>
-
+      <header class="post-header mb-5">
+        <h1 class="post-title font-weight-bold">{{ page.title }}</h1>
+      
         {% if page.subtitle %}
-          <p class="page-subtitle">{{ page.subtitle }}</p>
+          <p class="post-subtitle" style="color: var(--global-theme-color);">{{ page.subtitle }}</p>
         {% endif %}
-
-    {% if page.description %}
-      <p class="page-description text-muted">
-        {{ page.description | markdownify }}
-      </p>
-    {% endif %}
-
+      
+        {% if page.description %}
+          <p class="post-description">
+            {{ page.description | markdownify }}
+          </p>
+        {% endif %}
         <hr>
       </header>
+
     {% endif %}
 
     {{ content }}
