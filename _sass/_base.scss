@@ -242,7 +242,7 @@ ul.task-list input[type="checkbox"] {
 .post-description {
   margin-bottom: 2rem;
   font-size: 0.95rem;
-  color: #d112ba !important; 
+  color: var(--global-theme-color); 
   font-weight: 500;
 
   a {
