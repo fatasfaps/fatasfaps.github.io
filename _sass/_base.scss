@@ -646,10 +646,13 @@ footer.sticky-bottom {
       
       .post-title {
         font-weight: 500 !important;
+        font-size: 1.5rem;
       }
 
       &:hover {
         color: var(--global-theme-color);
+        .post-title {
+           color: var(--global-theme-color);
       }
     }
 
