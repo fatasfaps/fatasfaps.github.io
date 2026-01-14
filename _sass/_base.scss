@@ -616,6 +616,15 @@ footer.sticky-bottom {
   }
 }
 
+.page-subtitle {
+  color: var(--global-theme-color) !important;
+  font-weight: 500 !important;
+  font-style: italic;   
+  font-size: 1.1rem;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+
 .post-list {
   margin: 0;
   margin-bottom: 40px;
