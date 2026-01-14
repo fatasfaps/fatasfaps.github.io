@@ -15,7 +15,9 @@
         <h1 class="post-title font-weight-bold">{{ page.title }}</h1>
       
         {% if page.subtitle %}
-          <p class="post-subtitle" style="color: var(--global-theme-color);">{{ page.subtitle }}</p>
+          <p class="page-subtitle font-weight-bold" style="color: var(--global-theme-color) !important;">
+            {{ page.subtitle }}
+          </p>
         {% endif %}
       
         {% if page.description %}
