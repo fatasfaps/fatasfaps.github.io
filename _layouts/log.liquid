@@ -7,22 +7,18 @@
 <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
   {% include header.liquid %}
 
-  <!-- Content -->
   <div class="container mt-5" role="main">
 
     {% if page.title %}
-      <header class="post-header mb-4"> <h1 class="page-title font-weight-bold">{{ page.title }}</h1>
+      <header class="post-header mb-4"> 
+        <h1 class="page-title font-weight-bold">{{ page.title }}</h1>
       
         {% if page.subtitle %}
-          <p class="page-subtitle font-weight-bold" style="color: var(--global-theme-color) !important; font-size: 1.1rem; margin-top: -10px;">
+          <p class="page-subtitle font-weight-bold" style="color: var(--global-theme-color) !important; font-weight: 800 !important; font-size: 1.1rem; margin-top: -10px;">
             {{ page.subtitle }}
           </p>
         {% endif %}
-        
-        <hr>
-      </header>
-    {% endif %}
-      
+
         {% if page.description %}
           <p class="post-description">
             {{ page.description | markdownify }}
@@ -30,7 +26,6 @@
         {% endif %}
         <hr>
       </header>
-
     {% endif %}
 
     {{ content }}
