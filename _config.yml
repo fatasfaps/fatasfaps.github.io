@@ -6,6 +6,7 @@ title: blank # the website title (if blank, full name will be used instead)
 first_name: Fatima Hasya
 middle_name: Puspa 
 last_name: Kasih
+navbar_logo: assets/img/logo.png
 # contact_note: >
   # You can even add a little note about which of these is the best way to reach you.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
