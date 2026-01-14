@@ -241,7 +241,9 @@ ul.task-list input[type="checkbox"] {
 
 .post-description {
   margin-bottom: 2rem;
-  font-size: 0.875rem;
+  font-size: 0.95rem;
+  color: #d112ba !important; 
+  font-weight: 500;
 
   a {
     color: inherit;
@@ -601,6 +603,7 @@ footer.sticky-bottom {
 }
 
 .post-title {
+  font-weight: 800 !important;
   mjx-container[jax="CHTML"][display="true"] {
     display: unset;
   }
@@ -622,7 +625,11 @@ footer.sticky-bottom {
       font-size: 0.875rem;
       margin-bottom: 0;
     }
-
+    
+    .post-content p:first-of-type {
+    opacity: 0.7;      
+    }
+    
     .post-tags {
       color: var(--global-text-color-light);
       font-size: 0.875rem;
