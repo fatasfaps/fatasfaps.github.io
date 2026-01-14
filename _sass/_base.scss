@@ -310,13 +310,15 @@ ul.task-list input[type="checkbox"] {
 
   .navbar-brand {
     color: var(--global-text-color);
+    font-weight: bold !important;
   }
 
   .navbar-nav .nav-item .nav-link {
-    color: var(--global-text-color);
+  color: var(--global-text-color);
+  font-weight: bold; 
 
-    &:hover {
-      color: var(--global-hover-color);
+  &:hover {
+    color: var(--global-hover-color);
     }
   }
 
@@ -640,6 +642,10 @@ footer.sticky-bottom {
     a {
       color: var(--global-text-color);
       text-decoration: none;
+      
+      .post-title {
+        font-weight: normal !important; 
+      }
 
       &:hover {
         color: var(--global-theme-color);
