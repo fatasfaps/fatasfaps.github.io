@@ -1,8 +1,10 @@
 ---
 layout: page
-title: Projects
 permalink: /projects/
-description: A growing collection of your cool projects.
+title: Projects
+subtitle: Documentation of the works.
+description: >
+  Kindly hit me up through [email](mailto:fatimahasyapk2015@gmail.com) and let's see what we can do together! 
 nav: true
 nav_order: 2
 display_categories: [work, fun]
