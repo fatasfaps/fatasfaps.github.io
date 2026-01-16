@@ -26,18 +26,24 @@
       <hr>
     </header>
 
-    <div class="books-list">
-      {% assign books = site.books | sort: 'date' | reverse %}
-      {% for book in books %}
-        <div class="book-item">
-          <div class="book-cover">
-            <a href="{{ book.url | relative_url }}">
-              {% if book.cover %}
-                <img src="{{ book.cover | relative_url }}" alt="{{ book.title }}">
-              {% elsif book.isbn %}
-                <img src="http://covers.openlibrary.org/b/isbn/{{ book.isbn }}-L.jpg?default=false" alt="{{ book.title }}">
-              {% endif %}
-            </a>
+          <div class="books-list">
+            {% assign my_books = site.books | sort: 'date' | reverse %}
+            {% for book in my_books %}
+              <div class="book-item">
+                <div class="book-cover">
+                   <a href="{{ book.url | relative_url }}">
+                      {% if book.cover %}
+                        <img src="{{ book.cover | relative_url }}" alt="{{ book.title }}">
+                      {% endif %}
+                   </a>
+                </div>
+                <div class="book-info">
+                   <div class="book-title">{{ book.title }}</div>
+                   </div>
+              </div>
+            {% empty %}
+              <p>No books found in _books folder.</p>
+            {% endfor %}
           </div>
 
           <div class="book-info">
