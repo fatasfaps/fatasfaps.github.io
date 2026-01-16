@@ -1,49 +1,73 @@
----
-layout: page
----
-{{ content }}
+<!doctype html>
+<html lang="{{ site.lang }}">
+<head>
+  {% include head.liquid %}
+  <style>
+    .book-item { display: flex; gap: 25px; margin-bottom: 40px; align-items: flex-start; }
+    .book-cover img { width: 120px; border-radius: 4px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.2s; }
+    .book-cover img:hover { transform: scale(1.05); }
+    .book-info { flex: 1; }
+    .book-title { font-size: 1.4rem; font-weight: bold; margin-bottom: 5px; color: var(--global-text-color); }
+    .book-meta { font-size: 0.9rem; opacity: 0.7; margin-bottom: 15px; }
+    .book-obsession { font-size: 1rem; line-height: 1.5; margin-bottom: 10px; }
+    .book-obsession strong { color: var(--global-theme-color); }
+    .show-more { font-size: 0.9rem; text-decoration: underline !important; color: var(--global-theme-color) !important; }
+    .status-badge { font-size: 0.7rem; padding: 2px 8px; border-radius: 10px; background: var(--global-theme-color); color: white; vertical-align: middle; }
+  </style>
+</head>
 
-{% if page.collection and page.collection.size > 0 %}
-  {% assign collection = site[page.collection] %}
-  {% if collection and collection.size > 0 %}
-    {% for item in collection reversed %}
-      {% assign current_year = item.date | date: '%Y' %}
-      {% if current_year != year %}
-        {% unless forloop.first %}
-          </ul>
-        {% endunless %}
-        <h1 id="y{{item.date | date: "%Y"}}">
-          <a href="{{ current_year | prepend: '/books/' | relative_url }}">{{ current_year }}</a>
-        </h1>
-        <ul>
-          {% assign year = current_year %}
-      {% endif %}
+<body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
+  {% include header.liquid %}
 
-      <figure class="cover">
-        <a class="cover-link" href="{{ item.url | relative_url }}">
-          {% if item.cover %}
-            <img alt="{{ item.title }} cover" src="{{ item.cover | prepend: page.covers | relative_url }}" style="height:200px">
-          {% elsif item.olid %}
-            <img alt="{{ item.title }} cover" src="http://covers.openlibrary.org/b/olid/{{ item.olid }}-L.jpg?default=false" style="height:200px">
-          {% elsif item.isbn %}
-            <img alt="{{ item.title }} cover" src="http://covers.openlibrary.org/b/isbn/{{ item.isbn }}-L.jpg?default=false" style="height:200px">
-          {% endif %}
-          {% if item.status %}
-            {% assign statuses = 'abandoned,finished,interested,paused,queued,reading,reread' | split: ',' %}
-            {% assign status = item.status | downcase | strip %}
-            {% if statuses contains status %}
-              <figcaption class="{{ status | downcase }}">{{ status | upcase }}</figcaption>
-            {% else %}
-              <figcaption class="uncategorized">UNCATEGORIZED</figcaption>
+  <div class="container mt-5" role="main">
+    <header class="post-header mb-5">
+      <h1 class="post-title font-weight-bold">{{ page.title }}</h1>
+      {% if page.subtitle %}<p class="page-subtitle font-weight-bold" style="color: var(--global-theme-color) !important;">{{ page.subtitle }}</p>{% endif %}
+      {% if page.description %}<div class="post-description">{{ page.description | markdownify }}</div>{% endif %}
+      <hr>
+    </header>
+
+    <div class="books-list">
+      {% assign books = site.books | sort: 'date' | reverse %}
+      {% for book in books %}
+        <div class="book-item">
+          <div class="book-cover">
+            <a href="{{ book.url | relative_url }}">
+              {% if book.cover %}
+                <img src="{{ book.cover | relative_url }}" alt="{{ book.title }}">
+              {% elsif book.isbn %}
+                <img src="http://covers.openlibrary.org/b/isbn/{{ book.isbn }}-L.jpg?default=false" alt="{{ book.title }}">
+              {% endif %}
+            </a>
+          </div>
+
+          <div class="book-info">
+            <div class="book-title">
+              {{ book.title }} 
+              {% if book.status %}<span class="status-badge">{{ book.status | upcase }}</span>{% endif %}
+            </div>
+            <div class="book-meta">by {{ book.author }} &middot; {{ book.date | date: '%Y' }}</div>
+            
+            <div class="book-obsession">
+              {% if book.obsession %}
+                <strong>Why I'm obsessed:</strong> {{ book.obsession }}
+              {% endif %}
+            </div>
+
+            {% if book.fav_character %}
+            <div class="book-obsession">
+              <strong>Favorite Character:</strong> {{ book.fav_character }}
+            </div>
             {% endif %}
-          {% else %}
-            <figcaption class="uncategorized">UNCATEGORIZED</figcaption>
-          {% endif %}
-        </a>
-      </figure>
-      {% if forloop.last %}
-        </ul>
-      {% endif %}
-    {% endfor %}
-  {% endif %}
-{% endif %}
+
+            <a href="{{ book.url | relative_url }}" class="show-more">Show more...</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% include footer.liquid %}
+  {% include scripts.liquid %}
+</body>
+</html>
