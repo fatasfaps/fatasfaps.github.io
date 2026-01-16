@@ -502,11 +502,18 @@ ninja.data = [{
           window.open("https://medium.com/@fatasfaps", "_blank");
         },
       },{
-        id: 'social-goodreads',
-        title: 'Goodreads',
+        id: 'social-goodreads_username',
+        title: 'Goodreads_username',
         section: 'Socials',
         handler: () => {
-          window.open("https://www.goodreads.com/user/show/197331141-fatas", "_blank");
+          window.open("", "_blank");
+        },
+      },{
+        id: 'social-letterboxd_username',
+        title: 'Letterboxd_username',
+        section: 'Socials',
+        handler: () => {
+          window.open("", "_blank");
         },
       },{
         id: 'social-custom_social',
