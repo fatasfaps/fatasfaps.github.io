@@ -9,10 +9,9 @@
     .book-info { flex: 1; }
     .book-title { font-size: 1.4rem; font-weight: bold; margin-bottom: 5px; color: var(--global-text-color); }
     .book-meta { font-size: 0.9rem; opacity: 0.7; margin-bottom: 15px; }
-    .book-obsession { font-size: 1rem; line-height: 1.5; margin-bottom: 10px; }
-    .book-obsession strong { color: var(--global-theme-color); }
-    .show-more { font-size: 0.9rem; text-decoration: underline !important; color: var(--global-theme-color) !important; }
-    .status-badge { font-size: 0.7rem; padding: 2px 8px; border-radius: 10px; background: var(--global-theme-color); color: white; vertical-align: middle; }
+    .book-details { font-size: 1rem; line-height: 1.5; margin-bottom: 8px; }
+    .book-details strong { color: var(--global-theme-color); font-weight: 600; }
+    .show-more { font-size: 0.9rem; text-decoration: underline !important; color: var(--global-theme-color) !important; font-weight: 500; }
   </style>
 </head>
 
@@ -42,25 +41,24 @@
           </div>
 
           <div class="book-info">
-            <div class="book-title">
-              {{ book.title }} 
-              {% if book.status %}<span class="status-badge">{{ book.status | upcase }}</span>{% endif %}
-            </div>
+            <div class="book-title">{{ book.title }}</div>
             <div class="book-meta">by {{ book.author }} &middot; {{ book.date | date: '%Y' }}</div>
             
-            <div class="book-obsession">
-              {% if book.obsession %}
-                <strong>Why I'm obsessed:</strong> {{ book.obsession }}
-              {% endif %}
+            {% if book.obsession %}
+            <div class="book-details">
+              <strong>Why I'm obsessed:</strong> {{ book.obsession }}
             </div>
+            {% endif %}
 
             {% if book.fav_character %}
-            <div class="book-obsession">
+            <div class="book-details">
               <strong>Favorite Character:</strong> {{ book.fav_character }}
             </div>
             {% endif %}
 
-            <a href="{{ book.url | relative_url }}" class="show-more">Show more...</a>
+            <div class="mt-2">
+              <a href="{{ book.url | relative_url }}" class="show-more">Show more...</a>
+            </div>
           </div>
         </div>
       {% endfor %}
