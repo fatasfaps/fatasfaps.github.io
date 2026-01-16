@@ -470,7 +470,7 @@ ninja.data = [{
               window.location.href = "/projects/9_project/";
             },},{id: "scribbles-judul-ceritanya",
           title: 'Judul Ceritanya',
-          description: "",
+          description: "Ini adalah deskripsi singkat tentang apa yang aku tulis di catatan ini.",
           section: "Scribbles",handler: () => {
               window.location.href = "/scribbles/2024-05-20-hari-ini/";
             },},{
