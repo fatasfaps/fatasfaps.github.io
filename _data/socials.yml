@@ -7,7 +7,7 @@ linkedin_username: fatimahasya
 github_username: fatasfaps
 medium_username: fatasfaps
 goodreads: # can be any name here other than the ones already defined above
-  logo: img/goodreads.png # can be png, svg, jpg
+  logo: assets/img/goodreads.png # can be png, svg, jpg
   title: Goodreads
   url: https://www.goodreads.com/user/show/197331141-fatas
 custom_social: # can be any name here other than the ones already defined above
