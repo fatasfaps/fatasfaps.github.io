@@ -1,5 +1,5 @@
 ---
-layout: book-shelf
+layout: bookshelf
 title: Books
 subtitle: All time favorites.
 permalink: /books/
