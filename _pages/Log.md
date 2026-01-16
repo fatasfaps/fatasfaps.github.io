@@ -2,7 +2,7 @@
 layout: log
 permalink: /logs/
 title: Logs
-subtitle: The second brain, the key takeaways.
+subtitle: The second brain.
 description: >
   Juggling between mundanities and suddenly the traces of learning are somewhat scarce to be found —yet again. Here's my attempt to capture them.
 nav: false
