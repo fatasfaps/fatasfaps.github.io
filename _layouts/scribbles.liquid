@@ -3,43 +3,18 @@
 <head>
   {% include head.liquid %}
   <style>
-    .scribble-item {
-      border-bottom: 1px solid var(--global-divider-color);
-      transition: background 0.3s ease;
-    }
+    .scribble-item { border-bottom: 1px solid var(--global-divider-color); }
     .scribble-trigger {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 10px;
-      text-decoration: none !important;
-      color: var(--global-text-color) !important;
-      cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 10px; text-decoration: none !important;
+      color: var(--global-text-color) !important; cursor: pointer;
     }
-    .scribble-trigger:hover {
-      background-color: var(--global-hover-color);
-    }
-    .scribble-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-    }
-    .scribble-date {
-      font-family: 'Roboto Mono', monospace;
-      font-size: 0.9rem;
-      opacity: 0.7;
-    }
-    .scribble-body {
-      padding: 0 15px 30px 15px;
-      font-size: 1.05rem;
-      line-height: 1.6;
-    }
-    /* Efek rotasi icon saat dibuka */
-    .scribble-trigger[aria-expanded="true"] i {
-      transform: rotate(180deg);
-    }
-    .scribble-trigger i {
-      transition: transform 0.3s ease;
-    }
+    .scribble-trigger:hover { background-color: var(--global-hover-color); }
+    .scribble-title { font-size: 1.25rem; font-weight: 600; }
+    .scribble-date { font-family: 'Roboto Mono', monospace; font-size: 0.9rem; opacity: 0.7; }
+    .scribble-body { padding: 0 15px 30px 15px; font-size: 1.05rem; line-height: 1.6; }
+    .scribble-trigger[aria-expanded="true"] i { transform: rotate(180deg); }
+    .scribble-trigger i { transition: transform 0.3s ease; }
   </style>
 </head>
 
@@ -49,8 +24,17 @@
   <div class="container mt-5" role="main">
     <header class="post-header mb-5">
       <h1 class="post-title font-weight-bold">{{ page.title }}</h1>
+      
       {% if page.subtitle %}
-        <p class="page-subtitle" style="color: var(--global-theme-color) !important;">{{ page.subtitle }}</p>
+        <p class="page-subtitle font-italic" style="color: var(--global-theme-color) !important; font-size: 1.2rem;">
+          {{ page.subtitle }}
+        </p>
+      {% endif %}
+
+      {% if page.description %}
+        <div class="post-description" style="font-size: 1rem; opacity: 0.9;">
+          {{ page.description | markdownify }}
+        </div>
       {% endif %}
       <hr>
     </header>
@@ -59,18 +43,13 @@
       {% assign entries = site.scribbles | sort: 'date' | reverse %}
       {% for entry in entries %}
         <div class="scribble-item">
-          <a class="scribble-trigger" 
-             data-toggle="collapse" 
-             href="#content-{{ forloop.index }}" 
-             role="button" 
-             aria-expanded="false">
+          <a class="scribble-trigger" data-toggle="collapse" href="#content-{{ forloop.index }}" role="button" aria-expanded="false">
             <span class="scribble-title">{{ entry.title }}</span>
             <div>
               <span class="scribble-date mr-3">{{ entry.date | date: "%b %d, %Y" }}</span>
               <i class="fas fa-chevron-down"></i>
             </div>
           </a>
-
           <div class="collapse" id="content-{{ forloop.index }}">
             <div class="scribble-body">
               {{ entry.content }}
@@ -79,11 +58,8 @@
         </div>
       {% endfor %}
     </div>
-
-    <div class="mt-5">
-      {{ content }}
+    
     </div>
-  </div>
 
   {% include footer.liquid %}
   {% include scripts.liquid %}
