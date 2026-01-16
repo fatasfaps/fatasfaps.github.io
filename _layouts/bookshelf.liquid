@@ -4,7 +4,8 @@
   {% include head.liquid %}
   <style>
     .book-item { display: flex; gap: 25px; margin-bottom: 40px; align-items: flex-start; }
-    .book-cover img { width: 120px; border-radius: 4px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .book-cover img { width: 120px; border-radius: 4px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.2s; }
+    .book-cover img:hover { transform: scale(1.05); }
     .book-info { flex: 1; }
     .book-title { font-size: 1.4rem; font-weight: bold; margin-bottom: 5px; color: var(--global-text-color); }
     .book-meta { font-size: 0.9rem; opacity: 0.7; margin-bottom: 15px; }
@@ -26,33 +27,37 @@
     </header>
 
     <div class="books-list">
-      {% assign all_books = site.books | sort: 'date' | reverse %}
-      {% for item in all_books %}
+      {% assign books = site.books | sort: 'date' | reverse %}
+      {% for book in books %}
         <div class="book-item">
           <div class="book-cover">
-            <a href="{{ item.url | relative_url }}">
-              {% if item.cover %}
-                <img src="{{ item.cover | relative_url }}" alt="{{ item.title }}">
-              {% elsif item.isbn %}
-                <img src="https://covers.openlibrary.org/b/isbn/{{ item.isbn }}-L.jpg?default=false" alt="{{ item.title }}">
+            <a href="{{ book.url | relative_url }}">
+              {% if book.cover %}
+                <img src="{{ book.cover | relative_url }}" alt="{{ book.title }}">
+              {% elsif book.isbn %}
+                <img src="http://covers.openlibrary.org/b/isbn/{{ book.isbn }}-L.jpg?default=false" alt="{{ book.title }}">
               {% endif %}
             </a>
           </div>
 
           <div class="book-info">
-            <div class="book-title">{{ item.title }}</div>
-            <div class="book-meta">by {{ item.author }} &middot; {{ item.date | date: '%Y' }}</div>
+            <div class="book-title">{{ book.title }}</div>
+            <div class="book-meta">by {{ book.author }} &middot; {{ book.date | date: '%Y' }}</div>
             
-            {% if item.obsession %}
-            <div class="book-details"><strong>Why I'm obsessed:</strong> {{ item.obsession }}</div>
+            {% if book.obsession %}
+            <div class="book-details">
+              <strong>Why I'm obsessed:</strong> {{ book.obsession }}
+            </div>
             {% endif %}
 
-            {% if item.fav_character %}
-            <div class="book-details"><strong>Favorite Character:</strong> {{ item.fav_character }}</div>
+            {% if book.fav_character %}
+            <div class="book-details">
+              <strong>Favorite Character:</strong> {{ book.fav_character }}
+            </div>
             {% endif %}
 
             <div class="mt-2">
-              <a href="{{ item.url | relative_url }}" class="show-more">Show more...</a>
+              <a href="{{ book.url | relative_url }}" class="show-more">Show more...</a>
             </div>
           </div>
         </div>
