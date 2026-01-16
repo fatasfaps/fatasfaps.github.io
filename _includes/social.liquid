@@ -105,7 +105,7 @@
     {% when 'goodreads_username' %}
       <a href="https://www.goodreads.com/user/show/{{ social[1] }}" title="Goodreads"><i class="fa-brands fa-goodreads"></i></a>
     {% when 'letterboxd_username' %}
-      <a href="https://boxd.it/{{ social[1] }}" title="Letterboxd"><i class="fa-brands fa-letterboxd"></i></a>
+      <a href="https://letterboxd.com/{{ social[1] }}" title="Letterboxd"><i class="fa-brands fa-letterboxd"></i></a>
     {% else %}
       <a href="{{ social[1].url }}" title="{{ social[1].title }}">
         {% assign file_ext = social[1].logo | split: '.' | last %}
