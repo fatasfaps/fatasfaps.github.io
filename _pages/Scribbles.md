@@ -1,5 +1,5 @@
 ---
-layout: scribble
+layout: scribbles
 permalink: /scribbles/
 title: Scribbles
 subtitle: Articulated ponderations.
