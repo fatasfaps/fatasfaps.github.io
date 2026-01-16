@@ -40,28 +40,35 @@
     </header>
 
     <div class="scribbles-list">
-      {% assign entries = site.scribbles | sort: 'date' | reverse %}
-      {% for entry in entries %}
-        <div class="scribble-item">
-          <a class="scribble-trigger" data-toggle="collapse" href="#content-{{ forloop.index }}" role="button" aria-expanded="false">
-            <span class="scribble-title">{{ entry.title }}</span>
-            <div>
-              <span class="scribble-date mr-3">{{ entry.date | date: "%b %d, %Y" }}</span>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-          </a>
-          <div class="collapse" id="content-{{ forloop.index }}">
-            <div class="scribble-body">
-              {{ entry.content }}
-            </div>
-          </div>
+  {% assign entries = site.scribbles | sort: 'date' | reverse %}
+  {% for entry in entries %}
+    <div class="scribble-item">
+      <a class="scribble-trigger" 
+         data-toggle="collapse" 
+         href="#content-{{ forloop.index }}" 
+         role="button" 
+         aria-expanded="false">
+        
+        <div style="flex: 1;">
+          <span class="scribble-title">{{ entry.title }}</span>
+          {% if entry.description %}
+            <p class="scribble-entry-desc" style="margin: 5px 0 0 0; font-size: 0.95rem; opacity: 0.6; font-weight: normal;">
+              {{ entry.description }}
+            </p>
+          {% endif %}
         </div>
-      {% endfor %}
-    </div>
-    
-    </div>
 
-  {% include footer.liquid %}
-  {% include scripts.liquid %}
-</body>
-</html>
+        <div class="text-right" style="min-width: 140px;">
+          <span class="scribble-date mr-3">{{ entry.date | date: "%b %d, %Y" }}</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </a>
+
+      <div class="collapse" id="content-{{ forloop.index }}">
+        <div class="scribble-body">
+          {{ entry.content }}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
