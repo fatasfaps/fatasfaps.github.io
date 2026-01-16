@@ -157,6 +157,8 @@ collections:
     output: true
   projects:
     output: true
+  scribbles:
+    output: true
 
 # -----------------------------------------------------------------------------
 # Jekyll settings
