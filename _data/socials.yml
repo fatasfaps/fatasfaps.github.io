@@ -6,14 +6,8 @@ email: fatimahasyapk2015@gmail.com # your email address
 linkedin_username: fatimahasya
 github_username: fatasfaps
 medium_username: fatasfaps
-goodreads: # can be any name here other than the ones already defined above
-  logo: assets/img/goodreads.png # can be png, svg, jpg
-  title: Goodreads
-  url: https://www.goodreads.com/user/show/197331141-fatas
-custom_social: # can be any name here other than the ones already defined above
-  logo: https://www.alberteinstein.com/wp-content/uploads/2024/03/cropped-favicon-192x192.png # can be png, svg, jpg
-  title: Custom Social
-  url: https://www.alberteinstein.com/
+goodreads_username: 197331141-fatas
+letterboxd_username: fatasfaps
 
 # academia_edu:  your organization and your username Ex. https://organization.academia.edu/UserName
 # organization: princeton # your organization as appears in the subdomain
