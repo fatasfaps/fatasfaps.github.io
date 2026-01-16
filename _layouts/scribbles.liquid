@@ -11,6 +11,7 @@
     }
     .scribble-trigger:hover { background-color: var(--global-hover-color); }
     .scribble-title { font-size: 1.25rem; font-weight: 600; }
+    .scribble-entry-desc { margin: 5px 0 0 0; font-size: 0.95rem; opacity: 0.6; font-weight: normal; }
     .scribble-date { font-family: 'Roboto Mono', monospace; font-size: 0.9rem; opacity: 0.7; }
     .scribble-body { padding: 0 15px 30px 15px; font-size: 1.05rem; line-height: 1.6; }
     .scribble-trigger[aria-expanded="true"] i { transform: rotate(180deg); }
@@ -22,53 +23,61 @@
   {% include header.liquid %}
 
   <div class="container mt-5" role="main">
-    <header class="post-header mb-5">
-      <h1 class="post-title font-weight-bold">{{ page.title }}</h1>
+    
+    {% if page.title %}
+      <header class="post-header mb-5">
+        <h1 class="post-title font-weight-bold">{{ page.title }}</h1>
       
-      {% if page.subtitle %}
-        <p class="page-subtitle font-italic" style="color: var(--global-theme-color) !important; font-size: 1.2rem;">
-          {{ page.subtitle }}
-        </p>
-      {% endif %}
-
-      {% if page.description %}
-        <div class="post-description" style="font-size: 1rem; opacity: 0.9;">
-          {{ page.description | markdownify }}
-        </div>
-      {% endif %}
-      <hr>
-    </header>
+        {% if page.subtitle %}
+          <p class="page-subtitle font-weight-bold" style="color: var(--global-theme-color) !important;">
+            {{ page.subtitle }}
+          </p>
+        {% endif %}
+      
+        {% if page.description %}
+          <p class="post-description">
+            {{ page.description | markdownify }}
+          </p>
+        {% endif %}
+        <hr>
+      </header>
+    {% endif %}
 
     <div class="scribbles-list">
-  {% assign entries = site.scribbles | sort: 'date' | reverse %}
-  {% for entry in entries %}
-    <div class="scribble-item">
-      <a class="scribble-trigger" 
-         data-toggle="collapse" 
-         href="#content-{{ forloop.index }}" 
-         role="button" 
-         aria-expanded="false">
-        
-        <div style="flex: 1;">
-          <span class="scribble-title">{{ entry.title }}</span>
-          {% if entry.description %}
-            <p class="scribble-entry-desc" style="margin: 5px 0 0 0; font-size: 0.95rem; opacity: 0.6; font-weight: normal;">
-              {{ entry.description }}
-            </p>
-          {% endif %}
-        </div>
+      {% assign entries = site.scribbles | sort: 'date' | reverse %}
+      {% for entry in entries %}
+        <div class="scribble-item">
+          <div class="scribble-trigger" 
+               data-toggle="collapse" 
+               data-target="#content-{{ forloop.index }}" 
+               aria-expanded="false"
+               role="button">
+            
+            <div style="flex: 1;">
+              <span class="scribble-title">{{ entry.title }}</span>
+              {% if entry.description %}
+                <p class="scribble-entry-desc">{{ entry.description }}</p>
+              {% endif %}
+            </div>
 
-        <div class="text-right" style="min-width: 140px;">
-          <span class="scribble-date mr-3">{{ entry.date | date: "%b %d, %Y" }}</span>
-          <i class="fas fa-chevron-down"></i>
-        </div>
-      </a>
+            <div class="text-right" style="min-width: 140px;">
+              <span class="scribble-date mr-3">{{ entry.date | date: "%b %d, %Y" }}</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
 
-      <div class="collapse" id="content-{{ forloop.index }}">
-        <div class="scribble-body">
-          {{ entry.content }}
+          <div class="collapse" id="content-{{ forloop.index }}">
+            <div class="scribble-body">
+              {{ entry.content }}
+            </div>
+          </div>
         </div>
-      </div>
+      {% endfor %}
     </div>
-  {% endfor %}
-</div>
+
+  </div>
+
+  {% include footer.liquid %}
+  {% include scripts.liquid %}
+</body>
+</html>
