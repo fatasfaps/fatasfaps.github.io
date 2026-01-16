@@ -468,6 +468,11 @@ ninja.data = [{
           description: "another project with an image 🎉",
           section: "Projects",handler: () => {
               window.location.href = "/projects/9_project/";
+            },},{id: "scribbles-judul-ceritanya",
+          title: 'Judul Ceritanya',
+          description: "",
+          section: "Scribbles",handler: () => {
+              window.location.href = "/scribbles/2024-05-20-hari-ini/";
             },},{
         id: 'social-cv',
         title: 'CV',
