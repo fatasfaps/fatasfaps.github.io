@@ -16,6 +16,13 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/projects/";
           },
+        },{id: "nav-books",
+          title: "Books",
+          description: "Outside of the reviews on my [Goodreads](https://www.goodreads.com/user/show/197331141-fatas), I drop my 5-star reads here almost yearningly as they linger a little too long —some of which I actually let alter my brain chemistry.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/books/";
+          },
         },{id: "dropdown-logs",
               title: "Logs",
               description: "",
