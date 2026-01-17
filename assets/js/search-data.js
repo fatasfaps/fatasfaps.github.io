@@ -412,6 +412,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
+            },},{id: "logs-judul-ceritanya",
+          title: 'Judul Ceritanya',
+          description: "Ini adalah deskripsi singkat tentang apa yang aku tulis di catatan ini.",
+          section: "Logs",handler: () => {
+              window.location.href = "/logs/coba-coba/";
             },},{id: "movies-the-godfather",
           title: 'The Godfather',
           description: "",
