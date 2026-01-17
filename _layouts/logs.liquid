@@ -3,30 +3,40 @@
 <head>
   {% include head.liquid %}
   <style>
-    .log-item { border-bottom: 1px solid var(--global-divider-color); }
-    .log-trigger {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 20px 10px; text-decoration: none !important;
-      color: var(--global-text-color) !important; cursor: pointer;
+    .log-item { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      padding: 25px 10px; 
+      border-bottom: 1px solid var(--global-divider-color); 
     }
-    .log-trigger:hover { background-color: var(--global-hover-color); }
-    .log-title { font-size: 1.25rem; font-weight: 600; }
-    .log-entry-desc { margin: 5px 0 0 0; font-size: 0.95rem; opacity: 0.6; font-weight: normal; }
-    .log-date { font-family: 'Roboto Mono', monospace; font-size: 0.9rem; opacity: 0.7; }
-    .log-body { padding: 0 15px 30px 15px; font-size: 1.05rem; line-height: 1.6; }
-    .log-trigger[aria-expanded="true"] i { transform: rotate(180deg); }
-    .log-trigger i { transition: transform 0.3s ease; }
+    
+    /* Sisi Kiri: Teks */
+    .log-content { flex: 1; padding-right: 20px; }
+    .log-title { font-size: 1.25rem; font-weight: 600; display: block; margin-bottom: 4px; }
+    .log-desc { font-size: 0.95rem; opacity: 0.6; margin: 0; line-height: 1.4; }
 
-    .log-buttons { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+    /* Sisi Kanan: Tombol Horizontal */
+    .log-actions { display: flex; gap: 8px; flex-shrink: 0; }
     .log-btn {
       display: inline-flex; align-items: center; justify-content: center;
-      padding: 8px 16px; border: 1px solid var(--global-theme-color);
-      border-radius: 4px; /* Square with slight roundness */
-      font-size: 0.85rem; font-weight: 500; color: var(--global-theme-color) !important;
-      text-decoration: none !important; transition: all 0.3s;
+      padding: 8px 14px; border: 1px solid var(--global-theme-color);
+      border-radius: 4px; font-size: 0.8rem; font-weight: 500;
+      color: var(--global-text-color) !important; text-decoration: none !important;
+      transition: all 0.2s ease-in-out; background: transparent;
+      min-width: 80px;
     }
-    .log-btn:hover { background-color: var(--global-theme-color); color: white !important; }
-    .log-btn i { margin-right: 8px; }
+    .log-btn:hover { 
+      background-color: var(--global-theme-color); 
+      color: white !important; 
+    }
+    .log-btn i { margin-right: 6px; font-size: 0.9rem; }
+
+    /* Responsif untuk HP */
+    @media (max-width: 576px) {
+      .log-item { flex-direction: column; align-items: flex-start; }
+      .log-actions { margin-top: 15px; }
+    }
   </style>
 </head>
 
@@ -49,61 +59,34 @@
     {% endif %}
 
     <div class="logs-list">
-      {% comment %} Mengambil data dari site.logs {% endcomment %}
       {% assign entries = site.logs | sort: 'date' | reverse %}
       {% for entry in entries %}
         <div class="log-item">
-          <div class="log-trigger" 
-               data-toggle="collapse" 
-               data-target="#content-{{ forloop.index }}" 
-               aria-expanded="false"
-               role="button">
-            
-            <div style="flex: 1;">
-              <span class="log-title">{{ entry.title }}</span>
-              {% if entry.description %}
-                <p class="log-entry-desc">{{ entry.description }}</p>
-              {% endif %}
-            </div>
+          <div class="log-content">
+            <span class="log-title">{{ entry.title }}</span>
+            {% if entry.description %}
+              <p class="log-desc">{{ entry.description }}</p>
+            {% endif %}
+          </div>
 
-            <div class="text-right" style="min-width: 200px;">
-              <span class="log-date mr-3">
-                {{ entry.duration }} 
-                {% if entry.date_start and entry.date_end %}
-                  {% assign start = entry.date_start | date: '%s' %}
-                  {% assign end = entry.date_end | date: '%s' %}
-                  {% assign seconds = end | minus: start %}
-                  {% assign months = seconds | divided_by: 2592000 | plus: 1 %} {% comment %} 2592000 detik = 1 bulan {% endcomment %}
-                  <span style="opacity: 0.7;">({{ months }} {% if months > 1 %}months{% else %}month{% endif %})</span>
-                {% endif %}
-              </span>
-              <i class="fas fa-chevron-down"></i>
-            </div>
+          <div class="log-actions">
+            {% if entry.btn1_link %}
+              <a href="{{ entry.btn1_link }}" class="log-btn" target="_blank">
+                <i class="fas fa-link"></i> {{ entry.btn1_text | default: "Link" }}
+              </a>
+            {% endif %}
 
-          <div class="collapse" id="content-{{ forloop.index }}">
-            <div class="log-body">
-              {{ entry.content }}
+            {% if entry.btn2_link %}
+              <a href="{{ entry.btn2_link }}" class="log-btn" target="_blank">
+                <i class="fas fa-layer-group"></i> {{ entry.btn2_text | default: "Deck" }}
+              </a>
+            {% endif %}
 
-              <div class="log-buttons">
-                {% if entry.link_deck %}
-                  <a href="{{ entry.link_deck }}" class="log-btn" target="_blank">
-                    <i class="fas fa-layer-group"></i> Deck
-                  </a>
-                {% endif %}
-
-                {% if entry.link_notes %}
-                  <a href="{{ entry.link_notes }}" class="log-btn" target="_blank">
-                    <i class="fas fa-sticky-note"></i> Notes
-                  </a>
-                {% endif %}
-
-                {% if entry.link_presentation %}
-                  <a href="{{ entry.link_presentation }}" class="log-btn" target="_blank">
-                    <i class="fas fa-presentation-screen"></i> Presentation
-                  </a>
-                {% endif %}
-              </div>
-            </div>
+            {% if entry.btn3_link %}
+              <a href="{{ entry.btn3_link }}" class="log-btn" target="_blank">
+                <i class="fas fa-sticky-note"></i> {{ entry.btn3_text | default: "Notes" }}
+              </a>
+            {% endif %}
           </div>
         </div>
       {% endfor %}
