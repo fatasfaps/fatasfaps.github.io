@@ -1,5 +1,5 @@
 ---
-layout: log
+layout: logs
 permalink: /logs/
 title: Logs
 subtitle: The second brain.
