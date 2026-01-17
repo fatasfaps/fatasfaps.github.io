@@ -412,6 +412,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
+            },},{id: "logs-branding-design-project",
+          title: 'Branding Design Project',
+          description: "Identity design and social media kit for local coffee shop.",
+          section: "Logs",handler: () => {
+              window.location.href = "/logs/branding-project/";
             },},{id: "logs-judul-ceritanya",
           title: 'Judul Ceritanya',
           description: "Ini adalah deskripsi singkat tentang apa yang aku tulis di catatan ini.",
