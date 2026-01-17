@@ -3,22 +3,18 @@
 <head>
   {% include head.liquid %}
   <style>
-    /* Layout List Buku/Movie */
     .book-item { display: flex; gap: 25px; margin-bottom: 40px; align-items: flex-start; }
     .book-cover img { width: 150px; border-radius: 4px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.2s; }
     .book-cover img:hover { transform: scale(1.02); }
     .book-info { flex: 1; }
     
-    /* Tipografi */
     .book-title { font-size: 1.6rem; font-weight: bold; margin-bottom: 5px; color: var(--global-text-color); }
     .book-meta { font-size: 0.95rem; opacity: 0.7; margin-bottom: 15px; }
     .book-details { font-size: 1rem; line-height: 1.5; margin-bottom: 8px; }
     .book-details strong { color: var(--global-theme-color); font-weight: 600; }
     
-    /* Tombol Show More */
     .show-more { font-size: 0.9rem; text-decoration: underline !important; color: var(--global-theme-color) !important; font-weight: 500; }
 
-    /* CSS Tambahan agar Desc tipis sesuai Scribbles */
     .post-description { font-size: 0.95rem; opacity: 0.6; font-weight: normal; }
   </style>
 </head>
