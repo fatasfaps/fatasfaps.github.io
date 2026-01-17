@@ -417,6 +417,11 @@ ninja.data = [{
           description: "Ini adalah deskripsi singkat tentang apa yang aku tulis di catatan ini.",
           section: "Logs",handler: () => {
               window.location.href = "/logs/coba-coba/";
+            },},{id: "logs-project-research",
+          title: 'Project Research',
+          description: "Exploring the depth of this project.",
+          section: "Logs",handler: () => {
+              window.location.href = "/logs/my-project/";
             },},{id: "movies-the-godfather",
           title: 'The Godfather',
           description: "",
