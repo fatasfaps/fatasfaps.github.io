@@ -17,6 +17,9 @@
     
     /* Tombol Show More */
     .show-more { font-size: 0.9rem; text-decoration: underline !important; color: var(--global-theme-color) !important; font-weight: 500; }
+
+    /* CSS Tambahan agar Desc tipis sesuai Scribbles */
+    .post-description { font-size: 0.95rem; opacity: 0.6; font-weight: normal; }
   </style>
 </head>
 
@@ -36,9 +39,9 @@
         {% endif %}
       
         {% if page.description %}
-          <div class="post-description">
+          <p class="post-description">
             {{ page.description | markdownify }}
-          </div>
+          </p>
         {% endif %}
         <hr>
       </header>
