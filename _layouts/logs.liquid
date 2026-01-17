@@ -3,19 +3,31 @@
 <head>
   {% include head.liquid %}
   <style>
-    .scribble-item { border-bottom: 1px solid var(--global-divider-color); }
-    .scribble-trigger {
+    .log-item { border-bottom: 1px solid var(--global-divider-color); }
+    .log-trigger {
       display: flex; justify-content: space-between; align-items: center;
       padding: 20px 10px; text-decoration: none !important;
       color: var(--global-text-color) !important; cursor: pointer;
     }
-    .scribble-trigger:hover { background-color: var(--global-hover-color); }
-    .scribble-title { font-size: 1.25rem; font-weight: 600; }
-    .scribble-entry-desc { margin: 5px 0 0 0; font-size: 0.95rem; opacity: 0.6; font-weight: normal; }
-    .scribble-date { font-family: 'Roboto Mono', monospace; font-size: 0.9rem; opacity: 0.7; }
-    .scribble-body { padding: 0 15px 30px 15px; font-size: 1.05rem; line-height: 1.6; }
-    .scribble-trigger[aria-expanded="true"] i { transform: rotate(180deg); }
-    .scribble-trigger i { transition: transform 0.3s ease; }
+    .log-trigger:hover { background-color: var(--global-hover-color); }
+    .log-title { font-size: 1.25rem; font-weight: 600; }
+    .log-entry-desc { margin: 5px 0 0 0; font-size: 0.95rem; opacity: 0.6; font-weight: normal; }
+    .log-date { font-family: 'Roboto Mono', monospace; font-size: 0.9rem; opacity: 0.7; }
+    .log-body { padding: 0 15px 30px 15px; font-size: 1.05rem; line-height: 1.6; }
+    .log-trigger[aria-expanded="true"] i { transform: rotate(180deg); }
+    .log-trigger i { transition: transform 0.3s ease; }
+
+    /* Styling Tombol Square Horizontal */
+    .log-buttons { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+    .log-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 8px 16px; border: 1px solid var(--global-theme-color);
+      border-radius: 4px; /* Square with slight roundness */
+      font-size: 0.85rem; font-weight: 500; color: var(--global-theme-color) !important;
+      text-decoration: none !important; transition: all 0.3s;
+    }
+    .log-btn:hover { background-color: var(--global-theme-color); color: white !important; }
+    .log-btn i { margin-right: 8px; }
   </style>
 </head>
 
@@ -27,48 +39,63 @@
     {% if page.title %}
       <header class="post-header mb-5">
         <h1 class="post-title font-weight-bold">{{ page.title }}</h1>
-      
         {% if page.subtitle %}
-          <p class="page-subtitle font-weight-bold" style="color: var(--global-theme-color) !important;">
-            {{ page.subtitle }}
-          </p>
+          <p class="page-subtitle font-weight-bold" style="color: var(--global-theme-color) !important;">{{ page.subtitle }}</p>
         {% endif %}
-      
         {% if page.description %}
-          <p class="post-description">
-            {{ page.description | markdownify }}
-          </p>
+          <p class="post-description">{{ page.description | markdownify }}</p>
         {% endif %}
         <hr>
       </header>
     {% endif %}
 
-    <div class="scribbles-list">
-      {% assign entries = site.scribbles | sort: 'date' | reverse %}
+    <div class="logs-list">
+      {% comment %} Mengambil data dari site.logs {% endcomment %}
+      {% assign entries = site.logs | sort: 'date' | reverse %}
       {% for entry in entries %}
-        <div class="scribble-item">
-          <div class="scribble-trigger" 
+        <div class="log-item">
+          <div class="log-trigger" 
                data-toggle="collapse" 
                data-target="#content-{{ forloop.index }}" 
                aria-expanded="false"
                role="button">
             
             <div style="flex: 1;">
-              <span class="scribble-title">{{ entry.title }}</span>
+              <span class="log-title">{{ entry.title }}</span>
               {% if entry.description %}
-                <p class="scribble-entry-desc">{{ entry.description }}</p>
+                <p class="log-entry-desc">{{ entry.description }}</p>
               {% endif %}
             </div>
 
             <div class="text-right" style="min-width: 140px;">
-              <span class="scribble-date mr-3">{{ entry.date | date: "%b %d, %Y" }}</span>
+              <span class="log-date mr-3">{{ entry.date | date: "%b %d, %Y" }}</span>
               <i class="fas fa-chevron-down"></i>
             </div>
           </div>
 
           <div class="collapse" id="content-{{ forloop.index }}">
-            <div class="scribble-body">
+            <div class="log-body">
               {{ entry.content }}
+
+              <div class="log-buttons">
+                {% if entry.link_deck %}
+                  <a href="{{ entry.link_deck }}" class="log-btn" target="_blank">
+                    <i class="fas fa-layer-group"></i> Deck
+                  </a>
+                {% endif %}
+
+                {% if entry.link_notes %}
+                  <a href="{{ entry.link_notes }}" class="log-btn" target="_blank">
+                    <i class="fas fa-sticky-note"></i> Notes
+                  </a>
+                {% endif %}
+
+                {% if entry.link_presentation %}
+                  <a href="{{ entry.link_presentation }}" class="log-btn" target="_blank">
+                    <i class="fas fa-presentation-screen"></i> Presentation
+                  </a>
+                {% endif %}
+              </div>
             </div>
           </div>
         </div>
