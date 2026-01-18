@@ -1,14 +1,14 @@
 ---
 layout: page
 title: "Offline RL-based Dueling DDQN for Sepsis Management"
-img: /assets/img/nama-gambar-kamu.jpg
+img: /assets/img/projects-bg/duelingddqn.png
 duration: "Jul 2025 - Nov 2025"
 date_start: 2025-07-01
 date_end: 2025-11-01
-description: "User research and prototyping."
-btn1_text: "Live"
-btn1_link: "https://site.com"
-btn2_text: "Pitch"
-btn2_link: "https://deck.com"
+description: "Served as the thesis defense to my bachelor degree, obtained A score (4/4)."
+db_text: "Data"
+db_link: "https://physionet.org/content/mimiciii/1.4/"
+deck_text: "Deck"
+deck_link: /assets/pdf/Offline RL-based Dueling DDQN for Sepsis Management/
 ---
 hai :) 
