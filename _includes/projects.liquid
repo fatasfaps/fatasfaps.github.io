@@ -1,109 +1,97 @@
 <div class="col">
-  <div class="card h-100 hoverable project-card-custom" style="background-image: url('{{ project.img | relative_url }}');">
-    
-    <div class="project-overlay-content">
+  <div class="card h-100 project-card-new">
+    <a href="{% if project.redirect %}{{ project.redirect }}{% else %}{{ project.url | relative_url }}{% endif %}" class="project-card-link">
       
-      <div class="project-text-box">
-        <h2 class="card-title text-white font-weight-bold mb-1">{{ project.title }}</h2>
+      <div class="project-img-top">
+        {% if project.img %}
+          <img src="{{ project.img | relative_url }}" alt="{{ project.title }}" loading="lazy">
+        {% else %}
+          <div class="placeholder-img"></div>
+        {% endif %}
+      </div>
+
+      <div class="card-body project-body-content">
+        <h2 class="project-card-title">{{ project.title }}</h2>
         
         {% if project.date_start and project.date_end %}
-          <div class="project-duration-text">
+          <div class="project-card-duration">
             {{ project.duration }}
             {% assign start = project.date_start | date: '%s' %}
             {% assign end = project.date_end | date: '%s' %}
             {% assign seconds = end | minus: start %}
             {% assign months = seconds | divided_by: 2592000 | plus: 1 %}
-            <span class="mos-count">({{ months }} mos)</span>
+            <span class="mos-tag">({{ months }} mos)</span>
           </div>
         {% endif %}
 
-        <p class="card-text text-white-50 small mb-0">{{ project.description }}</p>
+        <p class="project-card-desc">{{ project.description }}</p>
       </div>
+    </a>
 
-      <div class="project-btn-group">
+    <div class="project-card-footer">
+      <div class="project-btn-cluster">
         {% if project.btn1_link %}
-          <a href="{{ project.btn1_link }}" class="custom-sq-btn" target="_blank" title="{{ project.btn1_text }}">
-            <i class="fa-solid fa-link"></i>
-            {% if project.btn1_text %}<span class="ml-1">{{ project.btn1_text }}</span>{% endif %}
+          <a href="{{ project.btn1_link }}" class="p-custom-btn" target="_blank">
+            <i class="fa-solid fa-link"></i>{% if project.btn1_text %}<span>{{ project.btn1_text }}</span>{% endif %}
           </a>
         {% endif %}
 
         {% if project.btn2_link %}
-          <a href="{{ project.btn2_link }}" class="custom-sq-btn" target="_blank" title="{{ project.btn2_text }}">
-            <i class="fa-solid fa-layer-group"></i>
-            {% if project.btn2_text %}<span class="ml-1">{{ project.btn2_text }}</span>{% endif %}
+          <a href="{{ project.btn2_link }}" class="p-custom-btn" target="_blank">
+            <i class="fa-solid fa-layer-group"></i>{% if project.btn2_text %}<span>{{ project.btn2_text }}</span>{% endif %}
           </a>
         {% endif %}
 
         {% if project.btn3_link %}
-          <a href="{{ project.btn3_link }}" class="custom-sq-btn" target="_blank" title="{{ project.btn3_text }}">
-            <i class="fa-solid fa-sticky-note"></i>
-            {% if project.btn3_text %}<span class="ml-1">{{ project.btn3_text }}</span>{% endif %}
+          <a href="{{ project.btn3_link }}" class="p-custom-btn" target="_blank">
+            <i class="fa-solid fa-sticky-note"></i>{% if project.btn3_text %}<span>{{ project.btn3_text }}</span>{% endif %}
           </a>
         {% endif %}
       </div>
-
     </div>
   </div>
 </div>
 
 <style>
-  
-  .project-card-custom {
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    min-height: 220px;
-    border: none;
+  .project-card-new {
+    border: 1px solid var(--global-divider-color);
+    border-radius: 12px;
     overflow: hidden;
-    display: flex;
-    align-items: flex-end; /* Konten nempel bawah */
-    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: var(--global-card-bg-color);
   }
+  .project-card-new:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+  .project-card-link { text-decoration: none !important; color: inherit !important; }
 
-  .project-overlay-content {
-    width: 100%;
-    padding: 20px;
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 70%, transparent 100%);
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end; /* Sejajarkan info & tombol di baseline */
-  }
+  /* Gambar */
+  .project-img-top { width: 100%; height: 200px; overflow: hidden; }
+  .project-img-top img { width: 100%; height: 100%; object-fit: cover; }
+  .placeholder-img { width: 100%; height: 100%; background: var(--global-hover-color); }
 
-  /* Teks Styling */
-  .project-text-box { flex: 1; padding-right: 15px; }
-  .project-duration-text { 
-    font-family: 'Roboto Mono', monospace; 
-    font-size: 0.75rem; 
-    color: rgba(255,255,255,0.8); 
-    margin-bottom: 5px;
+  /* Konten */
+  .project-body-content { padding: 1.25rem; }
+  .project-card-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 4px; }
+  .project-card-duration { 
+    font-family: 'Roboto Mono', monospace; font-size: 0.8rem; 
+    opacity: 0.7; margin-bottom: 12px; 
   }
-  .mos-count { opacity: 0.6; margin-left: 5px; }
+  .mos-tag { font-weight: bold; color: var(--global-theme-color); }
+  .project-card-desc { font-size: 0.95rem; opacity: 0.6; line-height: 1.5; margin-bottom: 0; }
 
-  .project-btn-group { display: flex; gap: 8px; flex-shrink: 0; }
-  .custom-sq-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px 12px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 4px;
-    color: white !important;
-    font-size: 0.75rem;
-    transition: 0.3s;
-    text-decoration: none !important;
-    min-width: 38px;
+  /* Footer Tombol */
+  .project-card-footer { padding: 0 1.25rem 1.25rem 1.25rem; }
+  .project-btn-cluster { display: flex; gap: 8px; flex-wrap: wrap; }
+  .p-custom-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 6px 12px; border: 1px solid var(--global-theme-color);
+    border-radius: 6px; font-size: 0.75rem; font-weight: 600;
+    color: var(--global-theme-color) !important; text-decoration: none !important;
+    transition: 0.2s;
   }
-  .custom-sq-btn:hover {
-    background: white;
-    color: black !important;
-    transform: translateY(-2px);
-  }
-
-  @media (max-width: 576px) {
-    .project-overlay-content { flex-direction: column; align-items: flex-start; }
-    .project-btn-group { margin-top: 15px; }
-  }
+  .p-custom-btn:hover { background: var(--global-theme-color); color: white !important; }
+  .p-custom-btn i { font-size: 0.85rem; }
+  .p-custom-btn span { margin-left: 6px; }
 </style>
