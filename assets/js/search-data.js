@@ -478,6 +478,11 @@ ninja.data = [{
           description: "another project with an image 🎉",
           section: "Projects",handler: () => {
               window.location.href = "/projects/9_project/";
+            },},{id: "projects-project-beta",
+          title: 'Project Beta',
+          description: "User research and prototyping.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/nama/";
             },},{id: "scribbles-judul-ceritanya",
           title: 'Judul Ceritanya',
           description: "Ini adalah deskripsi singkat tentang apa yang aku tulis di catatan ini.",
