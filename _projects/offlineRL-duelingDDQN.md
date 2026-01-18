@@ -9,7 +9,7 @@ description: "Served as the thesis defense to my bachelor degree, obtained A sco
 db_text: "Data"
 db_link: "https://physionet.org/content/mimiciii/1.4/"
 deck_text: "Deck"
-deck_link: /assets/pdf/Offline RL-based Dueling DDQN for Sepsis Management.pdf/
+deck_link: /assets/pdf/orl-duelingddqn.pdf
 github_text: "Source code"
 github_link: "https://github.com/fatasfaps"
 ---
