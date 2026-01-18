@@ -482,7 +482,7 @@ ninja.data = [{
           title: 'Offline RL-based Dueling DDQN for Sepsis Management',
           description: "Served as the thesis defense to my bachelor degree, obtained A score (GPA 4/4).",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/nama/";
+              window.location.href = "/projects/offlineRL-duelingDDQN/";
             },},{id: "scribbles-judul-ceritanya",
           title: 'Judul Ceritanya',
           description: "Ini adalah deskripsi singkat tentang apa yang aku tulis di catatan ini.",
