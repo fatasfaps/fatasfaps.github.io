@@ -1,35 +1,109 @@
 <div class="col">
-  <a href="{% if project.redirect %}{{ project.redirect }}{% else %}{{ project.url | relative_url }}{% endif %}">
-    <div class="card h-100 hoverable">
-      {% if project.img %}
-        {%
-          include figure.liquid
-          loading="eager"
-          path=project.img
-          sizes = "250px"
-          alt="project thumbnail"
-          class="card-img-top"
-        %}
-      {% endif %}
-      <div class="card-body">
-        <h2 class="card-title">{{ project.title }}</h2>
-        <p class="card-text">{{ project.description }}</p>
-        <div class="row ml-1 mr-1 p-0">
-          {% if project.github %}
-            <div class="github-icon">
-              <div class="icon" data-toggle="tooltip" title="Code Repository">
-                <a href="{{ project.github }}"><i class="fa-brands fa-github gh-icon"></i></a>
-              </div>
-              {% if project.github_stars %}
-                <span class="stars" data-toggle="tooltip" title="GitHub Stars">
-                  <i class="fa-solid fa-star"></i>
-                  <span id="{{ project.github_stars }}-stars"></span>
-                </span>
-              {% endif %}
-            </div>
-          {% endif %}
-        </div>
+  <div class="card h-100 hoverable project-card-custom" style="background-image: url('{{ project.img | relative_url }}');">
+    
+    <div class="project-overlay-content">
+      
+      <div class="project-text-box">
+        <h2 class="card-title text-white font-weight-bold mb-1">{{ project.title }}</h2>
+        
+        {% if project.date_start and project.date_end %}
+          <div class="project-duration-text">
+            {{ project.duration }}
+            {% assign start = project.date_start | date: '%s' %}
+            {% assign end = project.date_end | date: '%s' %}
+            {% assign seconds = end | minus: start %}
+            {% assign months = seconds | divided_by: 2592000 | plus: 1 %}
+            <span class="mos-count">({{ months }} mos)</span>
+          </div>
+        {% endif %}
+
+        <p class="card-text text-white-50 small mb-0">{{ project.description }}</p>
       </div>
+
+      <div class="project-btn-group">
+        {% if project.btn1_link %}
+          <a href="{{ project.btn1_link }}" class="custom-sq-btn" target="_blank" title="{{ project.btn1_text }}">
+            <i class="fa-solid fa-link"></i>
+            {% if project.btn1_text %}<span class="ml-1">{{ project.btn1_text }}</span>{% endif %}
+          </a>
+        {% endif %}
+
+        {% if project.btn2_link %}
+          <a href="{{ project.btn2_link }}" class="custom-sq-btn" target="_blank" title="{{ project.btn2_text }}">
+            <i class="fa-solid fa-layer-group"></i>
+            {% if project.btn2_text %}<span class="ml-1">{{ project.btn2_text }}</span>{% endif %}
+          </a>
+        {% endif %}
+
+        {% if project.btn3_link %}
+          <a href="{{ project.btn3_link }}" class="custom-sq-btn" target="_blank" title="{{ project.btn3_text }}">
+            <i class="fa-solid fa-sticky-note"></i>
+            {% if project.btn3_text %}<span class="ml-1">{{ project.btn3_text }}</span>{% endif %}
+          </a>
+        {% endif %}
+      </div>
+
     </div>
-  </a>
+  </div>
 </div>
+
+<style>
+  
+  .project-card-custom {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    min-height: 220px;
+    border: none;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end; /* Konten nempel bawah */
+    border-radius: 8px;
+  }
+
+  .project-overlay-content {
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 70%, transparent 100%);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Sejajarkan info & tombol di baseline */
+  }
+
+  /* Teks Styling */
+  .project-text-box { flex: 1; padding-right: 15px; }
+  .project-duration-text { 
+    font-family: 'Roboto Mono', monospace; 
+    font-size: 0.75rem; 
+    color: rgba(255,255,255,0.8); 
+    margin-bottom: 5px;
+  }
+  .mos-count { opacity: 0.6; margin-left: 5px; }
+
+  .project-btn-group { display: flex; gap: 8px; flex-shrink: 0; }
+  .custom-sq-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    color: white !important;
+    font-size: 0.75rem;
+    transition: 0.3s;
+    text-decoration: none !important;
+    min-width: 38px;
+  }
+  .custom-sq-btn:hover {
+    background: white;
+    color: black !important;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 576px) {
+    .project-overlay-content { flex-direction: column; align-items: flex-start; }
+    .project-btn-group { margin-top: 15px; }
+  }
+</style>
