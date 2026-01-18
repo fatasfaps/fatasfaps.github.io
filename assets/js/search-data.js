@@ -478,8 +478,8 @@ ninja.data = [{
           description: "another project with an image 🎉",
           section: "Projects",handler: () => {
               window.location.href = "/projects/9_project/";
-            },},{id: "projects-project-beta",
-          title: 'Project Beta',
+            },},{id: "projects-offline-rl-based-dueling-ddqn-for-sepsis-management",
+          title: 'Offline RL-based Dueling DDQN for Sepsis Management',
           description: "User research and prototyping.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/nama/";
