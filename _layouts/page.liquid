@@ -1,42 +1,112 @@
 ---
 layout: default
 ---
-{% if page._styles %}
-  <style type="text/css">
-    {{ page._styles }}
-  </style>
-{% endif %}
+<style>
+  .project-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Tombol sejajar dengan baris bawah teks */
+    padding: 30px 0;
+    border-bottom: 1px solid var(--global-divider-color);
+    gap: 20px;
+  }
+
+  .project-info { flex: 1; }
+  .project-title { font-size: 1.5rem; font-weight: bold; margin-bottom: 4px; display: block; color: var(--global-text-color); }
+  
+  .project-duration { 
+    font-family: 'Roboto Mono', monospace; 
+    font-size: 0.85rem; 
+    opacity: 0.7; 
+    margin-bottom: 10px; 
+    display: block; 
+  }
+
+  .project-desc { font-size: 0.95rem; opacity: 0.6; margin: 0; line-height: 1.5; }
+
+  .project-actions { display: flex; gap: 10px; flex-shrink: 0; margin-bottom: 5px; }
+  
+  .project-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 10px 15px; border: 1px solid var(--global-theme-color);
+    border-radius: 4px; font-size: 0.8rem; font-weight: 600;
+    color: var(--global-text-color) !important; text-decoration: none !important;
+    transition: all 0.2s ease; background: transparent;
+    min-width: 45px;
+  }
+  
+  .project-btn:hover { 
+    background-color: var(--global-theme-color); 
+    color: white !important; 
+  }
+  .project-btn i { font-size: 0.9rem; }
+  /* Jika ada teks setelah ikon */
+  .project-btn span { margin-left: 8px; }
+
+  @media (max-width: 576px) {
+    .project-item { flex-direction: column; align-items: flex-start; }
+    .project-actions { margin-top: 15px; }
+  }
+</style>
 
 <div class="post">
   <header class="post-header mb-5">
     <h1 class="post-title font-weight-bold">{{ page.title }}</h1>
-    
-    {% if page.subtitle %}
-      <p class="page-subtitle font-weight-bold">
-        {{ page.subtitle }}
-      </p>
-    {% endif %}
-
-    {% if page.description %}
-      <p class="post-description">
-        {{ page.description | markdownify }}
-      </p>
-    {% endif %}
+    {% if page.subtitle %}<p class="page-subtitle font-weight-bold">{{ page.subtitle }}</p>{% endif %}
+    {% if page.description %}<p class="post-description">{{ page.description | markdownify }}</p>{% endif %}
     <hr>
   </header>
 
   <article>
     {{ content }}
-  </article>
 
-  {% if page.related_publications %}
-    <h2>References</h2>
-    <div class="publications">
-      {% bibliography --cited_in_order %}
+    <div class="projects-list mt-4">
+      {% assign projects = site.projects | sort: 'importance' %}
+      {% for project in projects %}
+        <div class="project-item">
+          <div class="project-info">
+            <span class="project-title">{{ project.title }}</span>
+            
+            {% if project.date_start and project.date_end %}
+              <span class="project-duration">
+                {{ project.duration }} 
+                {% assign start = project.date_start | date: '%s' %}
+                {% assign end = project.date_end | date: '%s' %}
+                {% assign seconds = end | minus: start %}
+                {% assign months = seconds | divided_by: 2592000 | plus: 1 %}
+                <span style="opacity: 0.7;">({{ months }} mos)</span>
+              </span>
+            {% endif %}
+
+            {% if project.description %}
+              <p class="project-desc">{{ project.description }}</p>
+            {% endif %}
+          </div>
+
+          <div class="project-actions">
+            {% if project.btn1_link %}
+              <a href="{{ project.btn1_link }}" class="project-btn" target="_blank">
+                <i class="fas fa-link"></i>
+                {% if project.btn1_text %}<span>{{ project.btn1_text }}</span>{% endif %}
+              </a>
+            {% endif %}
+
+            {% if project.btn2_link %}
+              <a href="{{ project.btn2_link }}" class="project-btn" target="_blank">
+                <i class="fas fa-layer-group"></i>
+                {% if project.btn2_text %}<span>{{ project.btn2_text }}</span>{% endif %}
+              </a>
+            {% endif %}
+
+            {% if project.btn3_link %}
+              <a href="{{ project.btn3_link }}" class="project-btn" target="_blank">
+                <i class="fas fa-sticky-note"></i>
+                {% if project.btn3_text %}<span>{{ project.btn3_text }}</span>{% endif %}
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
     </div>
-  {% endif %}
-
-  {% if site.giscus and page.giscus_comments %}
-    {% include giscus.liquid %}
-  {% endif %}
+  </article>
 </div>
