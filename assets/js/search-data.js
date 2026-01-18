@@ -480,7 +480,7 @@ ninja.data = [{
               window.location.href = "/projects/9_project/";
             },},{id: "projects-offline-rl-based-dueling-ddqn-for-sepsis-management",
           title: 'Offline RL-based Dueling DDQN for Sepsis Management',
-          description: "Served as the thesis defense to my bachelor degree, obtained A score (4/4).",
+          description: "Served as the thesis defense to my bachelor degree, obtained A score (GPA 4/4).",
           section: "Projects",handler: () => {
               window.location.href = "/projects/nama/";
             },},{id: "scribbles-judul-ceritanya",
