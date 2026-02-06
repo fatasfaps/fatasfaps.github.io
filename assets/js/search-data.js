@@ -448,6 +448,11 @@ ninja.data = [{
           description: "Imagine a world without languages and wordings...",
           section: "Scribbles",handler: () => {
               window.location.href = "/scribbles/2025-12-11-Ponderation-on-Language/";
+            },},{id: "scribbles-about-yearning",
+          title: 'About Yearning',
+          description: "A very personal diary of someone who thinks and feels a lil too deeply.",
+          section: "Scribbles",handler: () => {
+              window.location.href = "/scribbles/2026-01-19-About-Yearning/";
             },},{
         id: 'social-email',
         title: 'email',
