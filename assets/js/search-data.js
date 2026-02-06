@@ -483,9 +483,9 @@ ninja.data = [{
           description: "Served as my bachelor’s thesis defense, earning an A (GPA 4.0/4.0).",
           section: "Projects",handler: () => {
               window.location.href = "/projects/offlineRL-duelingDDQN/";
-            },},{id: "scribbles-judul-ceritanya",
-          title: 'Judul Ceritanya',
-          description: "Ini adalah deskripsi singkat tentang apa yang aku tulis di catatan ini.",
+            },},{id: "scribbles-intention-and-intentionality",
+          title: 'Intention and Intentionality',
+          description: "A precious takeaway from a conversation I had with my Dad.",
           section: "Scribbles",handler: () => {
               window.location.href = "/scribbles/2024-05-20-hari-ini/";
             },},{
