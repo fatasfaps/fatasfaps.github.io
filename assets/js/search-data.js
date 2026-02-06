@@ -433,12 +433,7 @@ ninja.data = [{
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "News",},{id: "projects-project-9",
-          title: 'project 9',
-          description: "another project with an image 🎉",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/9_project/";
-            },},{id: "projects-offline-rl-based-dueling-ddqn-for-sepsis-management",
+          section: "News",},{id: "projects-offline-rl-based-dueling-ddqn-for-sepsis-management",
           title: 'Offline RL-based Dueling DDQN for Sepsis Management',
           description: "Served as my bachelor’s thesis defense, earning an A (GPA 4.0/4.0).",
           section: "Projects",handler: () => {
