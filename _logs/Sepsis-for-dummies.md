@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Sepsis (for dummies)"
-description: "Part of my journey to grasp a better understanding of Sepsis as a non-medical student, out of my undergrad thesis necessity."
+description: "Trying to grasp a better understanding of Sepsis as a non-medical student, out of my undergrad thesis necessity."
 date: 2025-05-04 
 
 # Button 1 (Logo Link)
