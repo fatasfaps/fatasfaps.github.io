@@ -414,7 +414,7 @@ ninja.data = [{
               window.location.href = "/books/the_godfather/";
             },},{id: "logs-sepsis-for-dummies",
           title: 'Sepsis (for dummies)',
-          description: "Part of my journey to grasp a better understanding of Sepsis as a non-medical student, out of my undergrad thesis necessity.",
+          description: "Trying to grasp a better understanding of Sepsis as a non-medical student, out of my undergrad thesis necessity.",
           section: "Logs",handler: () => {
               window.location.href = "/logs/Sepsis-for-dummies/";
             },},{id: "movies-the-godfather",
