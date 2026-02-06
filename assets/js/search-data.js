@@ -487,7 +487,7 @@ ninja.data = [{
           title: 'Intention and Intentionality',
           description: "A precious takeaway from a conversation I had with my Dad.",
           section: "Scribbles",handler: () => {
-              window.location.href = "/scribbles/2024-05-20-hari-ini/";
+              window.location.href = "/scribbles/2025-11-23-Intention-and-Intentionality/";
             },},{
         id: 'social-email',
         title: 'email',
