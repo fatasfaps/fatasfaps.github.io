@@ -8,4 +8,4 @@ Among all of the things I'm most grateful for, it's the dynamics I have with my 
 
 So anyways, we had a talk about money loan, his journey as a self-proclaimed "courageous and strategic money loaner". A brief context: my dad grew up as a part of marginalized community. Back when he was a child, his family was just, too poor —even too indigent to afford primary needs. That situation drove him to be a risk-taking fighter, someone audacious —almost too eager to be a lil reckless imo. From a very young age, my dad had already known about the concept of money-loaning.
 
-(to be continued, im still hooked at the ui part HELP hahah)
+(to be continued, im still hooked on the ui part HELP hahah)
