@@ -443,6 +443,11 @@ ninja.data = [{
           description: "A precious takeaway from a conversation I had with my Dad.",
           section: "Scribbles",handler: () => {
               window.location.href = "/scribbles/2025-11-23-Intention-and-Intentionality/";
+            },},{id: "scribbles-ponderation-on-language",
+          title: 'Ponderation on Language',
+          description: "Imagine a world without languages and wordings...",
+          section: "Scribbles",handler: () => {
+              window.location.href = "/scribbles/2025-12-11-Ponderation-on-Language/";
             },},{
         id: 'social-email',
         title: 'email',
