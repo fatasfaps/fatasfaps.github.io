@@ -9,7 +9,7 @@ description: "Served as my bachelor’s thesis defense, earning an A (GPA 4.0/4.
 deck_text: "Deck"
 deck_link: /assets/pdf/orl-duelingddqn.pdf
 github_text: "Source code"
-github_link: "https://github.com/fatasfaps"
+github_link: "https://github.com/fatasfaps/duelingddqn-for-sepsis"
 db_text: "Dataset"
 db_link: "https://physionet.org/content/mimiciii/1.4/"
 ---
