@@ -450,7 +450,7 @@ ninja.data = [{
               window.location.href = "/scribbles/2025-11-23-Intention-and-Intentionality/";
             },},{id: "scribbles-ponderation-on-language",
           title: 'Ponderation on Language',
-          description: "Imagine a world without languages and wordings...",
+          description: "(A justification on why i love poetry)",
           section: "Scribbles",handler: () => {
               window.location.href = "/scribbles/2025-12-11-Ponderation-on-Language/";
             },},{id: "scribbles-about-yearning",
