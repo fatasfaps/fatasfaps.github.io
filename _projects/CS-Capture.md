@@ -6,8 +6,8 @@ duration: "May 2026 - Jul 2026"
 date_start: 2026-05-18
 date_end: 2026-07-01
 description: "Trying to solve redundancy in my team's workflow, pro bono work."
-deck_text: "Deck"
-deck_link: /assets/pdf/orl-duelingddqn.pdf
+chain_text: "Site"
+chain_link: "https://woscanner-d.onrender.com/"
 github_text: "Source code"
 github_link: "https://github.com/fatasfaps/CS-Capture"
 ---
