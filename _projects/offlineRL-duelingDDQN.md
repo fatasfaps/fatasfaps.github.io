@@ -10,7 +10,7 @@ deck_text: "Deck"
 deck_link: /assets/pdf/orl-duelingddqn.pdf
 github_text: "Source code"
 github_link: "https://github.com/fatasfaps/duelingddqn-for-sepsis"
-db_text: "Paper"
-db_link: "https://online-journals.org/index.php/i-joe/article/view/60003"
+note_text: "Paper"
+note_link: "https://online-journals.org/index.php/i-joe/article/view/60003"
 ---
 hai :) 
