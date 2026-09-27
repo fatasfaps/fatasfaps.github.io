@@ -435,7 +435,7 @@ ninja.data = [{
           description: "",
           section: "News",},{id: "projects-automatic-wo-scanner",
           title: 'Automatic WO Scanner',
-          description: "Trying to solve redundancy in my team&#39;s workflow, pro bono work.",
+          description: "Pro bono work. Utilized OpenCV and Gemini 3.1 Flash-Lite, deployed on Render.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/CS-Capture/";
             },},{id: "projects-offline-rl-based-dueling-ddqn-for-sepsis-management",
