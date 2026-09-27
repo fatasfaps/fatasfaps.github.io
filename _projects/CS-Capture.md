@@ -9,8 +9,6 @@ description: "Trying to solve redundancy in my team's workflow, pro bono work."
 deck_text: "Deck"
 deck_link: /assets/pdf/orl-duelingddqn.pdf
 github_text: "Source code"
-github_link: "https://github.com/fatasfaps/duelingddqn-for-sepsis"
-note_text: "Paper"
-note_link: "https://online-journals.org/index.php/i-joe/article/view/60003"
+github_link: "https://github.com/fatasfaps/CS-Capture"
 ---
 hai :) 
