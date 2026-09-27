@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Automatic WO Scanner"
+title: "WO Scanner"
 img: /assets/img/projects-bg/cs-capture.png
 duration: "May 2026 - Jul 2026"
 date_start: 2026-05-18
