@@ -1,6 +1,6 @@
 ---
 layout: none
 title: Ponderation on Language
-description: Imagine a world without languages and wordings...
+description: (A justification on why i love poetry)
 date: 2025-12-11
 ---
